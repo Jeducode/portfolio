@@ -304,6 +304,8 @@ hr:hover {
 
 .section-four {
     padding: 50px 15px;
+    align-items: center;
+    justify-content: center;
 }
 
 .section-four h1 {
@@ -313,8 +315,13 @@ hr:hover {
 
 }
 
-.section-four h3 {
+.section-four p {
     margin: 0 0 20px 0;
+
+}
+
+#portfolio-select {
+    margin-bottom: 10px;
 }
 
 #portfolio-select ul {
@@ -347,6 +354,69 @@ hr:hover {
     background: var(--color4);
 }
 
+.section-five {
+    display: flex;
+    flex-direction: column;
+    background: var(--color2);
+    padding: 0 40px 20px 40px;
+    box-shadow: 0px 1px 2px -1px blanchedalmond;
+    position: relative;
+}
+
+#section-five-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact-hr {
+    width: 90%;
+    margin-bottom: 50px;
+    margin-top: 0;
+
+}
+
+.section-five h1,
+.section-five p {
+    margin-bottom: 20px;
+}
+
+
+input,
+textarea {
+    width: 100%;
+    margin: 15px 0;
+    padding: 15px 10px;
+    border-radius: 5px;
+    background: var(--color1);
+    border-style: solid;
+    border-color: var(--color3);
+    border-width: 1px;
+    color: var(--color4);
+}
+
+textarea {
+    height: 150px;
+}
+
+#send-msg-btn {
+    margin: 15px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    color: var(--color4);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: var(--color3);
+    background-color: Transparent;
+}
+
+#send-msg-btn:hover {
+    background: var(--color4);
+    color: var(--color1);
+    border-color: var(--color4);
+}
 
 /* MEDIA QUERIES */
 
@@ -413,6 +483,7 @@ hr:hover {
 
     .section-four {
         padding: 20px;
+
     }
 
 
@@ -422,7 +493,9 @@ hr:hover {
 
     }
 
-
+    .section-five {
+        padding: 50px 100px;
+    }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -447,6 +520,11 @@ hr:hover {
     #porfolio-img img {
         width: 31%;
     }
+
+    .section-five {
+        padding: 50px 150px;
+    }
+
 
 }
 
@@ -477,4 +555,9 @@ hr:hover {
     #porfolio-img img {
         width: 23%;
     }
+
+    .section-five {
+        padding: 50px 200px;
+    }
+
 }
