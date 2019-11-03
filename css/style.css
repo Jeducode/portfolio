@@ -78,7 +78,8 @@ nav h2 {
 
 .section-one,
 .section-two,
-.section-four {
+.section-four,
+.section-six {
     display: flex;
     flex-direction: column;
     background: var(--color2);
@@ -354,6 +355,8 @@ hr:hover {
     background: var(--color4);
 }
 
+
+/* Section five */
 .section-five {
     display: flex;
     flex-direction: column;
@@ -383,7 +386,7 @@ hr:hover {
 }
 
 
-input,
+form input,
 textarea {
     width: 100%;
     margin: 15px 0;
@@ -400,7 +403,10 @@ textarea {
     height: 150px;
 }
 
-#send-msg-btn {
+#send-msg-btn,
+#cal-btn,
+.prev-btn,
+.next-btn {
     margin: 15px;
     text-transform: uppercase;
     padding: 10px 20px;
@@ -412,10 +418,115 @@ textarea {
     background-color: Transparent;
 }
 
-#send-msg-btn:hover {
+#send-msg-btn:hover,
+#cal-btn:hover,
+.prev-btn:hover,
+.next-btn:hover {
     background: var(--color4);
     color: var(--color1);
     border-color: var(--color4);
+}
+
+/* .prev-btn:hover, */
+.next-btn:hover {
+    display: inline;
+}
+
+/* Section Six */
+
+.section-six {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#section-six-content {
+    width: 100%;
+}
+
+#section-six-header {
+    width: 100%;
+    border-style: solid;
+    padding: 10px;
+    border-color: var(--color3);
+    border-width: 1px;
+    margin-bottom: 20px;
+    text-align-last: center;
+    background: var(--color1);
+}
+
+.quote-section img {
+    width: 30px;
+    height: 30px
+}
+
+#quote-section-one h3 {
+    margin: 40px 0;
+}
+
+#section-six-header h1,
+#section-six-header p {
+    margin: 10px 0
+}
+
+#section-six-header h1 {
+    text-transform: uppercase;
+}
+
+
+.project-option,
+.writing-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: var(--color1);
+    margin: 10px;
+    border-radius: 15px;
+    justify-content: space-between;
+}
+
+#quote-creative-writing-one h1,
+#quote-creative-writing-one p {
+    margin-bottom: 20px;
+}
+
+.project-option label,
+.writing-option label {
+    margin-right: auto;
+}
+
+.project-option img,
+.writing-option img {
+    margin-right: 20px;
+}
+
+.writing-length {
+    width: 100%;
+    margin: 10px;
+    padding: 20px;
+    background: var(--color1);
+}
+
+.writing-length p {
+    text-align: center;
+}
+
+.writing-length input {
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+    background: var(--color4);
+    margin-top: 10px;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+/* Hide Calculator Pages */
+
+#quote-section-one {
+    display: none;
 }
 
 /* MEDIA QUERIES */
@@ -493,7 +604,8 @@ textarea {
 
     }
 
-    .section-five {
+    .section-five,
+    #section-six-content {
         padding: 50px 100px;
     }
 }
@@ -521,7 +633,8 @@ textarea {
         width: 31%;
     }
 
-    .section-five {
+    .section-five,
+    #section-six-content {
         padding: 50px 150px;
     }
 
@@ -560,4 +673,7 @@ textarea {
         padding: 50px 200px;
     }
 
+    #section-six-content {
+        padding: 50px 250px;
+    }
 }
