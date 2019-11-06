@@ -20,8 +20,8 @@
                 <ul class="nav-ul">
                     <li class="nav-list">About Me</li>
                     <li class="nav-list">Contact Me</li>
-                    <!-- <li class="nav-list">Test</li>
-                    <li class="nav-list">Defacto</li> -->
+                    <li class="nav-list">Quote</li>
+                    <!-- <li class="nav-list">Defacto</li> -->
                 </ul>
             </nav>
         </div>
@@ -247,7 +247,7 @@
                         </div>
                     </div>
 
-                    <!-- Calculator Page two -->
+                    <!-- Writing Section-->
 
                     <div id="quote-creative-writing-one" class="quote-section">
                         <h1>Creative writing</h1>
@@ -282,20 +282,153 @@
                             <input type="radio" id="ebook-writing" value="ebook-writing" name="writing-type" />
                         </div>
 
-                        <div class="writing-length">
+                        <div class="project-amount" id="writing-length">
                             <P>NUMBER OF WORDS?</P>
                             <input type="number">
 
                         </div>
 
-                        <button class="prev-btn">Previous</button>
+                        <button id="prev-btn" class="prev-btn">Previous</button>
 
 
-                        <button class="next-btn">Next</button>
+                        <button id="next-btn" class="next-btn">Next</button>
+                    </div>
+
+                    <!-- Graphics Section -->
+
+                    <div id="quote-graphics" class="quote-section">
+                        <h1>Graphic Design</h1>
+                        <p>What type of Graphic Design do you want?</p>
+
+                        <div id="graphics-option-one" class="graphics-option">
+                            <img src="/img/icon3.svg" alt="">
+                            <label for="logo"> Logo Design </label>
+                            <input type="radio" id="logo" value="logo" name="graphics-type" />
+
+                        </div>
+                        <div id="graphics-option-two" class="graphics-option">
+                            <img src="/img/icon1.svg" alt="">
+                            <label for="illustration"> Vector Illustrations </label>
+                            <input type="radio" id="illustration" value="illustration" name="graphics-type" />
+
+                        </div>
+                        <div id="graphics-option-three" class="graphics-option">
+                            <img src="/img/icon2.svg" alt="">
+                            <label for="flyer"> Flyer or Poster Design</label>
+                            <input type="radio" id="flyer" value="flyer" name="graphics-type" />
+                        </div>
+                        <div id="graphics-option" class="graphics-option">
+                            <img src="/img/icon4.svg" alt="">
+                            <label for="photo-manipulation"> Photo Manipulation </label>
+                            <input type="radio" id="photo-manipulation" value="photo-manipulation"
+                                name="graphics-type" />
+                        </div>
+                        <div id="graphics-optionfive" class="graphics-option">
+                            <img src="/img/icon4.svg" alt="">
+                            <label for="banner-ads"> Creative Banner Ads</label>
+                            <input type="radio" id="banner-ads" value="banner-ads" name="graphics-type" />
+                        </div>
+
+                        <div class="project-amount" id="graphic-amount">
+                            <P>AMOUNT</P>
+                            <input type="number">
+
+                        </div>
+
+                        <button id="prev-btn" class="prev-btn">Previous</button>
 
 
-                        <!-- <div id="creative-writing">
+                        <button id="next-btn" class="next-btn">Next</button>
+                    </div>
+
+
+                    <!-- Wordpress Design -->
+                    <div id="wordpress-design-section" class="quote-section">
+                        <h1>WordPress Design Package</h1>
+                        <p>Select all options you prefer in your Wordpress Package?</p>
+
+                        <div id="wordpress-option-one" class="wordpress-option">
+                            <img src="/img/icon3.svg" alt="">
+                            <label for="hosting"> 1 yr Hosting (NameCheap) </label>
+                            <input type="checkbox" id="hosting" value="hosting" name="wordpress-package" />
+
+                        </div>
+                        <div id="wordpress-option-two" class="wordpress-option">
+                            <img src="/img/icon1.svg" alt="">
+                            <label for="domain"> Domain (.com / .org) </label>
+                            <input type="checkbox" id="domain" value="domain" name="wordpress-package" />
+
+                        </div>
+                        <div id="wordpress-option-three" class="wordpress-option">
+                            <img src="/img/icon2.svg" alt="">
+                            <label for="wordpress-logo"> Website Logo</label>
+                            <input type="checkbox" id="wordpress-logo" value="wordpress-logo"
+                                name="wordpress-package" />
+                        </div>
+                        <div id="wordpress-option-four" class="wordpress-option">
+                            <img src="/img/icon4.svg" alt="">
+                            <label for="content-upload"> Upload all your contents </label>
+                            <input type="checkbox" id="content-upload" value="content-upload"
+                                name="wordpress-package" />
+                        </div>
+                        <div id="wordpress-option-five" class="wordpress-option">
+                            <img src="/img/icon4.svg" alt="">
+                            <label for="wordpress-graphics"> Design 5 Graphics</label>
+                            <input type="checkbox" id="wordpress-graphics" value="wordpress-graphics"
+                                name="wordpress-package" />
+                        </div>
+                        <div id="wordpress-option-six" class="wordpress-option">
+                            <img src="/img/icon4.svg" alt="">
+                            <label for="premium-theme"> Use Premium Theme</label>
+                            <input type="checkbox" id="premium-theme" value="premium-theme" name="wordpress-package" />
+                        </div>
+
+                        <button id="prev-btn" class="prev-btn">Previous</button>
+
+                        <button id="next-btn" class="next-btn">Next</button>
+                    </div>
+
+
+                    <!-- Programin Section -->
+                    <div id="programing-section" class="quote-section">
+                        <h3>I can Work on your Web Apps or Pages using: </h3>
+                        <hr>
+                        <ul>
+                            <li class="programing-list">
+                                HTML5
+                            </li>
+                            <li class="programing-list">
+                                CSS3
+                            </li>
+                            <li class="programing-list">
+                                BOOTSTRAP & MATERIALIZE
+                            </li>
+                            <li class="programing-list">
+                                SASS & LESS
+                            </li>
+                            <li class="programing-list">
+                                JQUERY
+                            </li>
+                            <li class="programing-list">
+                                JAVASCRIPT (ES6 standard)
+                            </li>
+                            <li class="programing-list">
+                                AJAX
+                            </li>
+                            <li class="programing-list">
+                                NODE & EXPRESS
+                            </li>
+                            <li class="programing-list">
+                                MONOGO DB
+                            </li>
+                        </ul>
+                        <hr>
+                        <p>Contact me for detailed Discusion and Price Estimation</p>
+                        <button id="reset-button" class="next-btn">Back</button>
+                    </div>
+                    <!-- <div id="creative-writing">
                             <select name="writing-type" id="writing-type">
+                                <option selected disabled>Select an Option</option>
                                 <option value="writing">Blog Post</option>
                                 <option value="music">Article/Feature writing</option>
                                 <option value="movies">Copy/Content writing.</option>
@@ -304,9 +437,38 @@
                                 <option value="writing">Ebook/Ghost writing</option>
                             </select>
                         </div> -->
+
+
+                    <!-- Result Section -->
+                    <div id="result-page">
+                        <div id="result-head">
+                            <img src="/img/img3.svg" alt="">
+                            <h1>Hello there,</h1>
+                            <p>Thanks for your interest in hiring me for your project.</p>
+                            <p>Below is just a a quick estimation. </p>
+
+                            <hr>
+                        </div>
+                        <div id="result-body">
+                            <p>Project type: </p>
+                            <p>Quantity: </p>
+                            <p>Cost:</p>
+                            <p>Delivery Time: </p>
+                            <hr>
+                        </div>
+
+                        <div id="result-footer">
+                            <p>Contact me for a more detialed discusion and Price
+                                Estimation</p>
+                            <p>
+                                Developed with <span id="hearts"> &hearts; </span>by Oladokun Oladapo
+                            </p>
+
+                            <button id="reset-button" class="next-btn">Reset</button>
+                        </div>
+
+
                     </div>
-
-
                 </div>
 
 

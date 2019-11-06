@@ -65,6 +65,7 @@ nav h2 {
     border-style: solid;
     border-width: 0.5px;
     border-color: var(--color2);
+    cursor: pointer;
 
 }
 
@@ -416,6 +417,7 @@ textarea {
     border-width: 0.5px;
     border-color: var(--color3);
     background-color: Transparent;
+    cursor: pointer;
 }
 
 #send-msg-btn:hover,
@@ -476,15 +478,17 @@ textarea {
 
 
 .project-option,
-.writing-option {
+.writing-option,
+.graphics-option,
+.wordpress-option {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 0 20px;
     background: var(--color1);
     margin: 10px;
     border-radius: 15px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 #quote-creative-writing-one h1,
@@ -493,27 +497,31 @@ textarea {
 }
 
 .project-option label,
-.writing-option label {
+.writing-option label,
+.graphics-option label {
     margin-right: auto;
+    padding: 20px 200px 20px 0px;
 }
 
 .project-option img,
-.writing-option img {
+.writing-option img,
+.graphics-option img,
+.wordpress-option img {
     margin-right: 20px;
 }
 
-.writing-length {
+.project-amount {
     width: 100%;
     margin: 10px;
     padding: 20px;
     background: var(--color1);
 }
 
-.writing-length p {
+.project-amount p {
     text-align: center;
 }
 
-.writing-length input {
+.project-amount input {
     width: 100%;
     align-items: center;
     padding: 20px;
@@ -523,11 +531,90 @@ textarea {
     justify-content: space-between;
 }
 
+/* Result-Page */
+#result-page {
+    background: var(--color1);
+    padding: 20px;
+}
+
+#result-page p {
+    margin: 10px 0;
+}
+
+#result-page hr {
+    width: 100%;
+}
+
+#result-page img {
+    width: 200px;
+    height: 200px;
+    background: var(--color3);
+    border-radius: 50%;
+}
+
+#result-head,
+#result-body,
+#result-footer {
+    text-align: center;
+}
+
+#hearts {
+    font-size: 1.5rem;
+    color: red;
+}
+
+
+/* Wordpres Option */
+.wordpress-option label {
+    margin-right: auto;
+    padding: 20px 150px 20px 0px;
+}
+
+
+/* Programing Section */
+#programing-section {
+    background: var(--color1);
+    padding: 20px;
+}
+
+#programing-section h3,
+#programing-section p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#programing-section hr {
+    width: 100%;
+}
+
+#programing-section ul li {
+    margin: 10px 0;
+}
+
+
 /* Hide Calculator Pages */
 
 #quote-section-one {
     display: none;
 }
+
+#quote-creative-writing-one {
+    display: none;
+}
+
+#quote-graphics {
+    display: none;
+}
+
+#result-page {
+    display: none;
+}
+
+#wordpress-design-section {
+    display: none;
+}
+
+
 
 /* MEDIA QUERIES */
 
@@ -608,6 +695,14 @@ textarea {
     #section-six-content {
         padding: 50px 100px;
     }
+
+    .project-option label,
+    .writing-option label,
+    .graphics-option label,
+    .wordpress-option label {
+        padding: 20px 250px 20px 0px;
+    }
+
 }
 
 @media only screen and (min-width: 1000px) {
@@ -675,5 +770,12 @@ textarea {
 
     #section-six-content {
         padding: 50px 250px;
+    }
+
+    .project-option label,
+    .writing-option label,
+    .graphics-option label,
+    .wordpress-option label {
+        padding: 20px 400px 20px 0px;
     }
 }
