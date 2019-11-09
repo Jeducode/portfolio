@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/fonts/Poppins/Poppins-Thin.ttf">
     <link rel="stylesheet" href="/fonts/Anton/Anton-Regular.ttf">
     <link rel="stylesheet" href="/fonts/Montserrat/Montserrat-Bold.ttf">
+    <script src="https://kit.fontawesome.com/834c402f06.js" crossorigin="anonymous"></script>
     <title>Porfolio</title>
 </head>
 
@@ -18,32 +19,72 @@
             <nav>
                 <h2>OLADAPO</h2>
                 <ul class="nav-ul">
-                    <li class="nav-list">About Me</li>
-                    <li class="nav-list">Contact Me</li>
-                    <li class="nav-list">Quote</li>
-                    <!-- <li class="nav-list">Defacto</li> -->
+                    <a href="#about-me-section">
+                        <li class="nav-list">About Me</li>
+                    </a>
+                    <a href="#porfolio-section">
+                        <li class="nav-list">Porfolio</li>
+                    </a>
+                    <a href="#contact-me-section">
+                        <li class="nav-list">Contact Me</li>
+                    </a>
+
+                    <a href="#quote-section">
+                        <li class="nav-list">Quote</li>
+                    </a>
+
                 </ul>
+                <span id="menu-bar"> <i class="fas fa-bars"></i></span>
             </nav>
+
+            <div id="mobile-nav">
+                <ul>
+                    <a href="#about-me-section">
+                        <li class="collapsible-nav-list"> About Me</li>
+                    </a>
+                    <a href="#porfolio-section">
+                        <li class="collapsible-nav-list"> Porfolio</li>
+                    </a>
+                    <a href="#contact-me-section">
+                        <li class="collapsible-nav-list"> Contact Me</li>
+                    </a>
+
+                    <a href="#quote-section">
+                        <li class="collapsible-nav-list"> Quote</li>
+                    </a>
+                </ul>
+            </div>
+
         </div>
     </header>
     <main class="container">
 
-        <section class="section-one">
+        <!-- Section one -->
+        <section id="welcome-profile-section" class="section-one">
             <div class="welcome-profile">
                 <P>Hello, my name is</P>
                 <h2>Oladokun Oladapo</h2>
                 <hr>
                 <P>Creative Designer and Aspiring Full-Stack Developer</P>
-                <button id="portfolio-button">Portfolio</button>
+                <a href="#porfolio-section">
+                    <button id="portfolio-button">Portfolio</button>
+                </a>
+
             </div>
 
             <figure>
                 <img src="/img/profile.svg">
             </figure>
 
+            <!-- Scroll-Up Button -->
+            <div id="go-up">
+                <a href="#welcome-profile-section"><i class="fas fa-arrow-alt-circle-up"></i></a>
+            </div>
+
         </section>
 
-        <section class="section-two">
+        <!-- Section Two -->
+        <section id="about-me-section" class="section-two">
             <div id="section-two-left">
 
                 <h2 id="about-me">About Me</h2>
@@ -59,24 +100,56 @@
                 <div id="detials-content">
                     <div id="detials-content-header">
                         <ul>
-                            <li>
+                            <li class="about-selector add-border show" id="short-bio">
                                 Short-Bio
                             </li>
-                            <li>
+
+                            <li class="about-selector " id="personal-summary">
                                 Personal Summary
                             </li>
-                            <li>
+                            <li class="about-selector " id="why-decagon">
                                 Why Decagon?
                             </li>
                         </ul>
                     </div>
                     <div id="details-content-body">
-                        <p>I am a Website Designer/developer, Writer and Digital Marketer. I have good Knowledge in a
+                        <p class="about-contents show" id="short-bio-content">I am a Website
+                            Designer/developer,
+                            Writer and Digital
+                            Marketer. I have
+                            good Knowledge in a
                             wide array of fields such as Writing, WordPress Website, Search-Engine Optimization,
                             Analytics, Digital display advertisement, Blogging, HTMl, CSS and Frameworks, Javascript,
                             UI/UX designs, Prototyping, Graphic design, Illustrations and Motion Graphics. I use
                             softwares like Microsoft Packages, Adobe Photoshop, Illustrator, XD, Premierre Pro, After
-                            Effects, and Dreamweaver. </p>
+                            Effects, and Dreamweaver.
+                        </p>
+                        <p class="about-contents" id="personal-summary-content">Lorem ipsum dolor sit amet
+                            consectetur
+                            adipisicing elit.
+                            Pariatur voluptate molestiae
+                            reprehenderit nemo consectetur porro, ullam sed laudantium maxime vitae!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur voluptate molestiae
+                            reprehenderit nemo consectetur porro, ullam sed laudantium maxime vitae!
+                            adipisicing elit.
+                            Pariatur voluptate molestiae
+                            reprehenderit nemo consectetur porro, ullam sed laudantium maxime vitae!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur voluptate molestiae
+                            reprehenderit nemo consectetur porro, ullam sed laudantium maxime vitae!
+                        </p>
+                        <p class="about-contents" id="why-decagon-content">The quick, brown fox jumps over a
+                            lazy dog.
+                            DJs flock by when MTV ax
+                            quiz prog. Junk MTV quiz
+                            graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs
+                            vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens
+                            jump;
+                            DJs flock by when MTV ax
+                            quiz prog. Junk MTV quiz
+                            graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs
+                            vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens
+                            jump;
+                        </p>
                     </div>
                     <!-- <div id="details-content-footer">
 
@@ -149,35 +222,35 @@
 
 
         <!-- Section Four (Porfolio) -->
-        <section class="section-four">
+        <section id="porfolio-section" class="section-four">
             <div id="porfolio-heading">
                 <h1>Selected Portfolio</h1>
                 <p>These are few of my previous works ... </p>
                 <div id="portfolio-select">
                     <ul>
-                        <li id="portfolio-select-1">View All</li>
-                        <li id="portfolio-select-2">Flyer Design</li>
-                        <li id="portfolio-select-3">Graphic Design</li>
-                        <li id="portfolio-select-4">Website Design</li>
+                        <li class="portfolio-btn" id="portfolio-select-1">View All</li>
+                        <li class="portfolio-btn" id="portfolio-select-2">Flyer Design</li>
+                        <li class="portfolio-btn" id="portfolio-select-3">Graphic Design</li>
+                        <li class="portfolio-btn" id="portfolio-select-4">Website Design</li>
                     </ul>
                 </div>
             </div>
 
             <div id="porfolio-img">
-                <img src="/img/img1.svg" alt="">
-                <img src="/img/img2.svg" alt="">
-                <img src="/img/img3.svg" alt="">
-                <img src="/img/img4.svg" alt="">
-                <img src="/img/img5.svg" alt="">
-                <img src="/img/img6.svg" alt="">
-                <img src="/img/img7.svg" alt="">
-                <img src="/img/img8.svg" alt="">
+                <img class="portfolio-images portfolio-image-flyer show" src="/img/img1.svg" alt="">
+                <img class="portfolio-images portfolio-image-flyer show" src="/img/img2.svg" alt="">
+                <img class="portfolio-images portfolio-image-graphics show" src="/img/img3.svg" alt="">
+                <img class="portfolio-images portfolio-image-website show" src="/img/img4.svg" alt="">
+                <img class="portfolio-images portfolio-image-graphics show" src="/img/img5.svg" alt="">
+                <img class="portfolio-images portfolio-image-website show" src="/img/img6.svg" alt="">
+                <img class="portfolio-images portfolio-image-graphics show" src="/img/img7.svg" alt="">
+                <img class="portfolio-images portfolio-image-website show" src="/img/img8.svg" alt="">
 
             </div>
         </section>
 
         <!-- Section Five (Contact) -->
-        <section class="section-five">
+        <section id="contact-me-section" class="section-five">
             <div id="section-five-content">
 
                 <div id="section-five-header">
@@ -204,7 +277,7 @@
         </section>
 
         <!-- Section six (Additional Feature) -->
-        <section class="section-six">
+        <section id="quote-section" class="section-six">
             <div id="section-six-content">
 
                 <div id="section-six-header">
@@ -480,7 +553,7 @@
         </section>
     </main>
 
-
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
