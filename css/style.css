@@ -107,6 +107,7 @@ nav h2 {
 #menu-bar {
     margin: 10px 20px 0 0;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .nav-list {
@@ -572,7 +573,7 @@ textarea {
     background: var(--color1);
     margin: 10px;
     border-radius: 15px;
-    /* justify-content: space-between; */
+
 }
 
 #quote-creative-writing-one h1,
@@ -599,13 +600,16 @@ textarea {
     margin: 10px;
     padding: 20px;
     background: var(--color1);
+
 }
 
 .project-amount p {
     text-align: center;
+
 }
 
 .project-amount input {
+    color: var(--color1) !important;
     width: 100%;
     align-items: center;
     padding: 20px;
@@ -640,6 +644,13 @@ textarea {
 #result-body,
 #result-footer {
     text-align: center;
+}
+
+#result-body p span {
+    background: var(--color3);
+    color: var(--color1);
+    padding: 0 10px;
+    text-transform: capitalize;
 }
 
 #hearts {
