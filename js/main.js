@@ -1,4 +1,4 @@
-// Menu Display Mobile Screen
+// Menu Display Mobile Screen....................................
 
 let mobileNav = document.getElementById('mobile-nav');
 
@@ -20,7 +20,7 @@ document.addEventListener('click', function (e) {
 })
 
 
-// About Me Section
+// About Me Section...............................................
 let aboutSelector = document.querySelectorAll('.about-selector');
 let aboutContents = document.querySelectorAll('.about-contents');
 
@@ -43,7 +43,7 @@ function removeBorder() {
 aboutSelector.forEach(item => item.addEventListener('click', selectItem));
 
 
-//Porfolio Section
+//Porfolio Section......................................................
 
 let portfolioImg = document.querySelectorAll('.portfolio-images');
 
@@ -73,7 +73,7 @@ function removeImg() {
 }
 
 
-// Quote Calculator Section
+// Quote Calculator Section........................................
 
 let writingSection = document.getElementById('quote-creative-writing-one');
 let graphicSection = document.getElementById('quote-graphics');
@@ -116,7 +116,7 @@ document.getElementById('cal-btn').addEventListener('click', () => {
     }
 });
 
-
+//Project Cost....................................................
 
 // Writing and Graphic Design Prices
 
@@ -128,20 +128,21 @@ let prices = {
     socialContent: 2500,
     ebook: 2000,
     logo: 5000,
-    illustration: 1000,
+    illustration: 3000,
     flyer: 5000,
     photoManipulation: 3000,
     bannerAd: 3500
 }
 
 
-//Project Cost
-
 let costOfproject = 0;
 
 // Get Project Function by Type
 
+// Cost in Writing Section
+
 function projectCostbyType() {
+
     let writingTypeCost = document.querySelector('input[name="writing-type"]:checked');
     if (writingTypeCost.id === 'blog-post') {
         costOfproject += prices.blogPost;
@@ -159,71 +160,150 @@ function projectCostbyType() {
         costOfproject += prices.ebook;
     }
 
+    return costOfproject;
+}
+
+
+// Cost in Graphics..............
+
+function graphicCostByType() {
+
+    let graphicTypeCost = document.querySelector('input[name="graphics-type"]:checked');
+    if (graphicTypeCost.id === 'logo') {
+        costOfproject += prices.logo;
+    }
+    if (graphicTypeCost.id === 'illustration') {
+        costOfproject += prices.illustration;
+    }
+    if (graphicTypeCost.id === 'flyer') {
+        costOfproject += prices.flyer;
+    }
+    if (graphicTypeCost.id === 'photo-manipulation') {
+        costOfproject += prices.photoManipulation;
+    }
+    if (graphicTypeCost.id === 'banner-ads') {
+        costOfproject += prices.bannerAd;
+    }
 
     return costOfproject;
 }
 
-// Manipulate Project Cost Due to number of words
+// Manipulate Writing Project Cost Due to number of words
+
 let writingLengthValue = document.getElementById('writing-length-value');
-let writingDuration = 1;
+let projectDuration = 1;
 
 function projectCostByWords() {
 
     if (writingLengthValue.value > 1000 && writingLengthValue.value < 2001) {
         costOfproject = costOfproject * 2;
-        writingDuration = 2;
+        projectDuration = 2;
     }
     if (writingLengthValue.value > 2000 && writingLengthValue.value < 5000) {
         costOfproject = costOfproject * 5;
-        writingDuration = 3;
+        projectDuration = 3;
     }
     if (writingLengthValue.value > 4999 && writingLengthValue.value < 9999) {
         costOfproject = costOfproject * 10;
-        writingDuration = 5;
+        projectDuration = 5;
     }
     if (writingLengthValue.value > 9999 && writingLengthValue.value < 49999) {
         costOfproject = costOfproject * 50;
-        writingDuration = 14;
+        projectDuration = 14;
     }
     if (writingLengthValue.value > 49999) {
         costOfproject = costOfproject * 200;
-        writingDuration = 100;
+        projectDuration = 100;
     }
 
     return costOfproject;
 }
 
+// Manipulate Graphic Project Cost Due to number of words
 
-// Result Page
-// Event 
-document.getElementById('next-btn').addEventListener('click', () => {
+let graphicAmountVal = document.getElementById('graphic-amount-value');
+
+let graphicProjectCost;
+let graphicDays;
+
+function graphicCostByNumber() {
+    graphicProjectCost = graphicAmountVal.value * costOfproject;
+    graphicDays = Math.ceil(graphicAmountVal.value * 1.2);
+    return graphicProjectCost;
+}
+
+
+//Days to complete Graphic projects
+
+
+
+
+// Result Page.......................................................
+// Events
+
+// Writing Section Event 
+document.getElementById('writing-next-btn').addEventListener('click', () => {
+    if (document.querySelector('input[name="writing-type"]:checked') === null) {
+        alert('Pick a value');
+    };
     if (document.getElementById('writing-length-value').value === '') {
         alert('Enter an Amount')
     } else {
-        console.log(projectCostbyType())
-        console.log(projectCostByWords());
+        projectCostbyType();
+        projectCostByWords();
         writingSection.style.display = "none"
         resultPage.style.display = 'block';
         displayResult();
     }
 });
 
+// Graphic Section Event 
+document.getElementById('graphic-next-btn').addEventListener('click', () => {
+    graphicCostByType();
+    graphicCostByNumber();
+    graphicSection.style.display = "none"
+    resultPage.style.display = 'block';
+    displayResult();
+})
 
-// Result Dom Manipulation
+
+
+
+// Result Dom Manipulation..........................................................
 
 function displayResult() {
+    //All result Values
+    let resultsDisplay = new Object();
+    if (document.querySelector('input[name="writing-type"]:checked') !== null) {
+        resultsDisplay.projectType = document.querySelector('input[name="project-type"]:checked').value;
+        resultsDisplay.projectSubType = document.querySelector('input[name="writing-type"]:checked').id
+        resultsDisplay.quantity = `${writingLengthValue.value} words`;
+        resultsDisplay.cost = `${costOfproject} ($${Math.ceil(costOfproject / 360)})`;
+        resultsDisplay.time = projectDuration;
+    }
+    if (document.querySelector('input[name="graphics-type"]:checked') !== null) {
+        resultsDisplay.projectType = document.querySelector('input[name="project-type"]:checked').value;
+        resultsDisplay.projectSubType = document.querySelector('input[name="graphics-type"]:checked').id
+        resultsDisplay.quantity = `${graphicAmountVal.value} designs`;
+        resultsDisplay.cost = `${graphicProjectCost} ($${Math.ceil(graphicProjectCost/ 360)})`;
+        resultsDisplay.time = graphicDays;
+    }
+
+
+    //Display Result in DOM
     let displayDom = document.getElementById('result-body').innerHTML = `
-    <p>Project type: <span>${document.querySelector('input[name="project-type"]:checked').value} (${document.querySelector('input[name="writing-type"]:checked').id}) </span></p>
-    <p>Quantity: <span>${document.getElementById('writing-length-value').value} words</span> </p>
-    <p>Cost: <span>&#8358 ${costOfproject} ( $${Math.ceil(costOfproject / 360)}) </span></p>
-    <p>Delivery Time: <span>${writingDuration} days </span></p>
+    <p>Project type: <span>${resultsDisplay.projectType} (${resultsDisplay.projectSubType}) </span></p>
+    <p>Quantity: <span>${resultsDisplay.quantity}</span> </p>
+    <p>Cost: <span>&#8358 ${resultsDisplay.cost} </span></p>
+    <p>Delivery Time: <span>${ resultsDisplay.time} days </span></p>
     <hr>`
-    displayDom;
+    return displayDom;
+
 }
 
 
-//Reset Button
 
+//Reset Button...................................................................
 //Result Reset
 document.body.addEventListener('click', e => {
     if (e.target.className === 'next-btn reset-button') {
