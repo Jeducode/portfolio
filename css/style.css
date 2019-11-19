@@ -355,15 +355,12 @@ hr:hover {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 2rem;
-
 }
-
 
 .card-divs {
     display: flex;
     flex-wrap: wrap;
 }
-
 
 .cards {
     background: var(--color1);
@@ -404,7 +401,6 @@ hr:hover {
 
 .section-four p {
     margin: 0 0 20px 0;
-
 }
 
 #portfolio-select {
@@ -426,7 +422,6 @@ hr:hover {
 #portfolio-select ul li:hover {
     background: var(--color4);
     cursor: pointer;
-
 }
 
 #porfolio-img {
@@ -573,11 +568,10 @@ textarea {
     background: var(--color1);
     margin: 10px;
     border-radius: 15px;
-
 }
 
-#quote-creative-writing-one h1,
-#quote-creative-writing-one p {
+.quote-section h1,
+.quote-section p {
     margin-bottom: 20px;
 }
 
@@ -600,12 +594,10 @@ textarea {
     margin: 10px;
     padding: 20px;
     background: var(--color1);
-
 }
 
 .project-amount p {
     text-align: center;
-
 }
 
 .project-amount input {

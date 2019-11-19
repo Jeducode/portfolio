@@ -73,7 +73,7 @@ function removeImg() {
 }
 
 
-// Quote Calculator Section........................................
+// Quote Calculator Section...............................................
 
 let writingSection = document.getElementById('quote-creative-writing-one');
 let graphicSection = document.getElementById('quote-graphics');
@@ -116,9 +116,12 @@ document.getElementById('cal-btn').addEventListener('click', () => {
     }
 });
 
-//Project Cost....................................................
+//Project Cost.........................................................
 
 // Writing and Graphic Design Prices
+
+// Initial Cost of Project
+let costOfproject = 0;
 
 //Prices per 1000 words
 let prices = {
@@ -135,7 +138,52 @@ let prices = {
 }
 
 
-let costOfproject = 0;
+//Wordpress Pricing..........................................
+
+let wordPressCheckbox = [];
+
+function wordpressValues() {
+    let wordpressValues = document.getElementsByName('wordpress-package');
+
+    for (let i = 0; i < wordpressValues.length; i++) {
+        if (wordpressValues[i].checked === true) {
+            wordPressCheckbox.push(wordpressValues[i].id);
+        }
+    }
+    return wordPressCheckbox;
+}
+
+let wordPressPrices = [11000, 6000, 5000, 5000, 15000, 25000];
+
+let wordPressIndex = ['hosting', 'domain', 'wordpress-logo', 'content-upload', 'wordpress-graphics', 'premium-theme'];
+
+let wordpressIndexVal = [];
+let wordpressPriceVals = [];
+
+let wpFinalPrice = 0;
+document.getElementById('wordPress-next-btn').addEventListener('click', function () {
+    console.log(wordpressValues());
+
+    for (let i = 0; i < wordPressIndex.length; i++) {
+        if (wordPressIndex.includes(wordPressCheckbox[i]))
+            wordpressIndexVal.push(wordPressIndex.indexOf(wordPressCheckbox[i]));
+    }
+
+    for (let i = 0; i < wordPressPrices.length; i++) {
+        if (wordPressPrices[wordpressIndexVal[i]] !== undefined) {
+            wordpressPriceVals.push(wordPressPrices[wordpressIndexVal[i]]);
+        }
+    }
+    wpFinalPrice += wordpressPriceVals.reduce((a, b) => a + b, 0)
+
+    if (document.querySelector('input[name="wordpress-package"]:checked') === null) {
+        alert('Pick a value');
+    } else {
+        wordpressDesign.style.display = "none"
+        resultPage.style.display = 'block';
+        displayResult();
+    }
+})
 
 // Get Project Function by Type
 
@@ -164,7 +212,7 @@ function projectCostbyType() {
 }
 
 
-// Cost in Graphics..............
+// Cost in Graphics...............................
 
 function graphicCostByType() {
 
@@ -238,7 +286,7 @@ function graphicCostByNumber() {
 
 
 
-// Result Page.......................................................
+// Result Page................................................................
 // Events
 
 // Writing Section Event 
@@ -259,36 +307,55 @@ document.getElementById('writing-next-btn').addEventListener('click', () => {
 
 // Graphic Section Event 
 document.getElementById('graphic-next-btn').addEventListener('click', () => {
-    graphicCostByType();
-    graphicCostByNumber();
-    graphicSection.style.display = "none"
-    resultPage.style.display = 'block';
-    displayResult();
+    if (document.querySelector('input[name="graphics-type"]:checked') === null) {
+        alert('Pick a value');
+    };
+    if (document.getElementById('graphic-amount-value').value === '') {
+        alert('Enter an Amount')
+    } else {
+        graphicCostByType();
+        graphicCostByNumber();
+        graphicSection.style.display = "none"
+        resultPage.style.display = 'block';
+        displayResult();
+    }
 })
-
 
 
 
 // Result Dom Manipulation..........................................................
 
+
 function displayResult() {
     //All result Values
+
     let resultsDisplay = new Object();
-    if (document.querySelector('input[name="writing-type"]:checked') !== null) {
-        resultsDisplay.projectType = document.querySelector('input[name="project-type"]:checked').value;
-        resultsDisplay.projectSubType = document.querySelector('input[name="writing-type"]:checked').id
-        resultsDisplay.quantity = `${writingLengthValue.value} words`;
-        resultsDisplay.cost = `${costOfproject} ($${Math.ceil(costOfproject / 360)})`;
-        resultsDisplay.time = projectDuration;
-    }
+
     if (document.querySelector('input[name="graphics-type"]:checked') !== null) {
         resultsDisplay.projectType = document.querySelector('input[name="project-type"]:checked').value;
         resultsDisplay.projectSubType = document.querySelector('input[name="graphics-type"]:checked').id
         resultsDisplay.quantity = `${graphicAmountVal.value} designs`;
         resultsDisplay.cost = `${graphicProjectCost} ($${Math.ceil(graphicProjectCost/ 360)})`;
         resultsDisplay.time = graphicDays;
-    }
 
+    } else if (document.querySelector('input[name="writing-type"]:checked') !== null) {
+        resultsDisplay.projectType = document.querySelector('input[name="project-type"]:checked').value;
+        resultsDisplay.projectSubType = document.querySelector('input[name="writing-type"]:checked').id
+        resultsDisplay.quantity = `${writingLengthValue.value} words`;
+        resultsDisplay.cost = `${costOfproject} ($${Math.ceil(costOfproject / 360)})`;
+        resultsDisplay.time = projectDuration;
+
+    } else if (document.querySelector('input[name="wordpress-package"]:checked') !== null) {
+        resultsDisplay.projectType = document.querySelector('input[name="project-type"]:checked').value;
+        resultsDisplay.projectSubType = 'Package'
+        for (let i = 0; i < wordPressCheckbox.length; i++) {
+            if (wordPressCheckbox[i] !== undefined) {
+                resultsDisplay.quantity += `${wordPressCheckbox[i]}, `;
+            }
+        };
+        resultsDisplay.cost = `${wpFinalPrice} ($${Math.ceil(wpFinalPrice / 360)})`;
+        resultsDisplay.time = 5;
+    }
 
     //Display Result in DOM
     let displayDom = document.getElementById('result-body').innerHTML = `
@@ -305,13 +372,35 @@ function displayResult() {
 
 //Reset Button...................................................................
 //Result Reset
+
+
+// Uncheck Previously selected radios/Values
+function unCheckboxes() {
+    let checkbox1 = document.getElementsByName('project-type');
+    let checkbox2 = document.getElementsByName('writing-type');
+    let checkbox3 = document.getElementsByName('graphics-type');
+    let checkbox4 = document.getElementsByName('wordpress-package')
+
+    let allCheckboxes = [...checkbox1, ...checkbox2, ...checkbox3, ...checkbox4];
+    for (let i = 0; i < allCheckboxes.length; i++) {
+        allCheckboxes[i].checked = false;
+    }
+}
+
+// Listen to Button to fire Reset
+
 document.body.addEventListener('click', e => {
     if (e.target.className === 'next-btn reset-button') {
         for (let i = 0; i < allQuotePages.length; i++) {
             allQuotePages[i].style.display = 'none'
         }
+        unCheckboxes()
         quoteSectionOne.style.display = "block"
         costOfproject = 0;
+        wpFinalPrice = 0;
+        wordPressCheckbox = [];
+        wordpressIndexVal = [];
+        wordpressPriceVals = [];
         writingLengthValue.value = '';
     }
 
